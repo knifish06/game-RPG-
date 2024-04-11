@@ -6,11 +6,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private Rigidbody2D myRB;
+    public Rigidbody2D myRB;
     private Animator myAnim;
 
     [SerializeField]
     private float speed = 0f;
+
+    private float attackTime = 0.25f;
+    private float attackCounter = 0.25f;
+    private bool IsAttacking;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +36,25 @@ public class PlayerController : MonoBehaviour
         { 
             myAnim.SetFloat("LastMoveX", Input.GetAxisRaw("Horizontal"));
             myAnim.SetFloat("LastMoveY", Input.GetAxisRaw("Vertical"));
+        }  
+        
+        if ( IsAttacking)
+        {
+            myRB.velocity = Vector2.zero;
+
+            attackCounter -= Time.deltaTime;
+            if ( attackCounter <= 0 )
+            {
+                myAnim.SetBool("IsAttacking", false);
+                IsAttacking = false;
+            }    
         }    
+
+        if( Input.GetKeyDown(KeyCode.T))
+        {
+            attackCounter = attackTime;
+            myAnim.SetBool("IsAttacking", true);
+                IsAttacking = true;
+        }
     }
 }
