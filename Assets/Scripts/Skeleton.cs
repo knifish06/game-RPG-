@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class Skeleton : MonoBehaviour
 {
     private Animator myAnim;
     public Transform homePos;
