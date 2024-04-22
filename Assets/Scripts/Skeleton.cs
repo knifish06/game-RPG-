@@ -57,4 +57,15 @@ public class Skeleton : MonoBehaviour
             myAnim.SetBool("isMoving", false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "MyWeapon")
+        {
+            Vector2 difference = transform.position - other.transform.position; // luu tru chenh lech 
+            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);//cap nhat vi tri moi
+
+        }    
+        
+    }
 }
