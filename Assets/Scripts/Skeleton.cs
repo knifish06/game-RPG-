@@ -18,6 +18,7 @@ public class Skeleton : MonoBehaviour
     [SerializeField]
     private float minRange = 0f ;
 
+    public int expSke = 15 ;
      // Start is called before the first frame update
     void Start()
     {

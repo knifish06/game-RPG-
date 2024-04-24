@@ -12,10 +12,20 @@ public class EnemyHealthManager : MonoBehaviour
     private float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer enemySprite;
+
+
+    private SystemLevel expPlayer;
+
+    private Skeleton ske;
+
+
     // Start is called before the first frame update
     void Start()
     {
         enemySprite = GetComponent<SpriteRenderer>();
+        expPlayer = FindObjectOfType<SystemLevel>();
+        ske = FindObjectOfType<Skeleton>(); 
+
     }
 
     // Update is called once per frame
@@ -76,6 +86,8 @@ public class EnemyHealthManager : MonoBehaviour
         if ( currentHealth<= 0)
         {
             Destroy(gameObject);
+
+            expPlayer.AddExp();
         }
     }
 }

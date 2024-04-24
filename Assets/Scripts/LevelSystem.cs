@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSystem
+public class LevelSystem : MonoBehaviour 
 {
     private int level;
     private int experience;
     private int expToNextLevel;
+
+    public int playerLevel = 1;
+    public int maxLevel = 10;
+    public int currentExp = 0;
+    public int expToLevelUp;
 
     public LevelSystem()
     {
